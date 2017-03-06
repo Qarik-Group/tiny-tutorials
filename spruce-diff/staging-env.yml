@@ -1,0 +1,8 @@
+---
+applications:
+- name: myapp
+  routes:
+  - myapp-staging.starkandwayne.com
+  env:
+  - SPECIAL: staging-special-token
+  - DEBUG: 1

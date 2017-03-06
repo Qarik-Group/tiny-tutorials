@@ -1,0 +1,6 @@
+---
+applications:
+- name: myapp
+  env:
+  - SPECIAL: staging-special-token
+  - DEBUG: 1

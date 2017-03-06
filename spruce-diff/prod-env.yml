@@ -1,0 +1,7 @@
+---
+applications:
+- name: myapp
+  routes:
+  - myapp.starkandwayne.com
+  env:
+  - SPECIAL: prod-special-token

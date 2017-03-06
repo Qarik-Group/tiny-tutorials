@@ -1,0 +1,5 @@
+---
+applications:
+- name: myapp
+  env:
+  - SPECIAL: prod-special-token
