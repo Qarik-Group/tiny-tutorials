@@ -30,7 +30,7 @@ From the root folder of the `tiny-tutorials` repo:
 spruce merge */metadata.yml
 ```
 
-The output might look similar to:
+The output will look similar to:
 
 ```yaml
 tutorials:
