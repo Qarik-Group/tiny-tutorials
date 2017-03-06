@@ -1,0 +1,4 @@
+---
+tutorials:
+- name: Merge YAML array items
+  folder: spruce-merge-array-items
