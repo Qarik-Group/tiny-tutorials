@@ -1,7 +1,0 @@
-applications:
-- name: myapp
-  services:
-  - myapp-pg
-  - myapp-redis
-  env:
-  - COMMON: some-common-value

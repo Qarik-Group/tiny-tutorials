@@ -2,8 +2,8 @@
 
 set -x
 
-cat manifest.yml
+cat values.yml
 
-spruce json manifest.yml
+spruce json values.yml
 
-spruce json manifest.yml | jq .
+spruce json values.yml | jq .
