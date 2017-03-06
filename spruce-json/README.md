@@ -4,6 +4,8 @@ Since `spruce` works so well with YAML files - merging them, importing data from
 
 `spruce json` makes this step easy.
 
+![json](spruce-json.png)
+
 ```
 cat >/tmp/values.yml <<YAML
 ---
