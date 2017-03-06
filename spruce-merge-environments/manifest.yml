@@ -1,3 +1,4 @@
+---
 applications:
 - name: myapp
   services:
