@@ -1,0 +1,4 @@
+---
+tutorials:
+- name: Safely generate passwords in Vault
+  folder: safe-gen
