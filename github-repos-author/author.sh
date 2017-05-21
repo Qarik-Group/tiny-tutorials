@@ -3,6 +3,12 @@
 : ${GITHUB_TOKEN:?required}
 
 : ${repo:?required}
-repo_created_at=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$repo | jq -r .created_at)
-author=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$repo/commits\?until\=$repo_created_at | jq -r ".[0].author.login")
-echo "$repo $author $repo_created_at"
+commit_links_regexp='Link: <(.*)>; rel="next", <(.*)>; rel="last"'
+last_commits=https://api.github.com/repos/$repo/commits
+commit_links=$(curl -s -H "Authorization: token $GITHUB_TOKEN" $last_commits -I 2>&1 | grep "^Link")
+if [[ $commit_links =~ $commit_links_regexp ]]; then
+  last_commits="${BASH_REMATCH[2]}"
+fi
+
+author=$(curl -s -H "Authorization: token $GITHUB_TOKEN" ${last_commits} | jq -r ".[-1].author.login // .[-1].commit.author")
+echo "$repo $author"
