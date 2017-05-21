@@ -3,6 +3,43 @@
 # USAGE:
 #   org=cloudfoundry-community ./authors.sh
 #   org=cloudfoundry-community ./authors.sh | tee authors.log
+#
+# BONUS: count number of repos created by authors
+#   $ cat authors.log | awk '{print $2}' | sort | uniq -c | sort
+#   ...
+#    3 thomasmmitchell
+#    8 soutenniza
+#    11 geofffranks
+#    13 frodenas
+#    13 rkoster
+#    17 jhunt
+#    28 lnguyen
+#    67 drnic
+#
+# BONUS: count number of repos created by authors, filtered by members.sh
+#   $ cat authors.log | egrep "($(cat members-starkandwayne.log | paste -sd "|" -))" | awk '{print $2}' | sort | uniq -c | sort
+#   1 cweibel
+#   1 fearoffish
+#   1 jrbudnack
+#   1 mrferris
+#   1 ramonskie
+#   2 bodymindarts
+#   2 dennisjbell
+#   2 givett
+#   2 johnlonganecker
+#   2 wayneeseguin
+#   3 thomasmmitchell
+#   8 soutenniza
+#   11 geofffranks
+#   13 frodenas
+#   13 rkoster
+#   17 jhunt
+#   28 lnguyen
+#   67 drnic
+#
+# BONUS: total repos initially created by a member of an organization
+#   $ cat authors.log | egrep "($(cat members-starkandwayne.log | paste -sd "|" -))" | awk '{print $2}' | sort | uniq -c | sort | awk '{print $1}'| paste -sd+ - | bc
+#   175
 
 : ${GITHUB_TOKEN:?required}
 : ${org:?which organization to search thru for first author}
