@@ -51,6 +51,7 @@ function fetch_authors() {
   next_repos=$1
   repos=($(curl -s -H "Authorization: token $GITHUB_TOKEN" $next_repos | jq -r ".[].full_name"))
   for repo in "${repos[@]}"; do
+    export repo
     $DIR/author.sh
   done
 }
